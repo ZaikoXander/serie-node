@@ -1,13 +1,15 @@
 import express from "express"
 import bodyParser from "body-parser"
 
-import authControllerRouter from "./controllers/authController.js"
+import authController from "./controllers/authController.js"
+import projectController from "./controllers/projectController.js"
 
 const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-authControllerRouter(app)
+authController(app)
+projectController(app)
 
-app.listen(3333, () => console.log("server on port", 3333))
+app.listen(3333, () => console.log("Server running on port", 3333))

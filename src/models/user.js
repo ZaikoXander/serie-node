@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 UserSchema.pre("save", async function(next) { // Before saving a new User
-  const hash = await bcrypt.hash(this.password, 10)
+  const hash = await bcrypt.hash(this.password, 10) // encrypt the password
   this.password = hash
 
   next()
