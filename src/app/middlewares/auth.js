@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import { authentication } from "../config/dotenv.js"
+import { AUTH_SECRET } from "../../config/authConfig.js"
 
 export default (req, res, next) => {
   const authHeader = req.headers.authorization
@@ -21,7 +21,7 @@ export default (req, res, next) => {
     return res.status(401).send({ error: "Malformatted token" })
   }
 
-  jwt.verify(token, authentication.AUTH_SECRET, (error, decoded) => {
+  jwt.verify(token, AUTH_SECRET, (error, decoded) => {
     if (error) {
       return res.status(401).send({ error: "Invalid token" })
     }
