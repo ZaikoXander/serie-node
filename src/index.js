@@ -1,5 +1,8 @@
 import express from "express"
 import bodyParser from "body-parser"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 import controllers from "./app/controllers/index.js"
 
@@ -10,4 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 controllers(app)
 
-app.listen(3333, () => console.log("Server running on port", 3333))
+app.listen(Number(process.env.PORT) || 3333, () => {
+  console.log(`HTTP server running on port ${process.env.PORT || 3333}`)
+})
