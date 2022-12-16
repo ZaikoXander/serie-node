@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     return res.send({ projects })
 
   } catch (error) {
-    return res.status(400).send({ erro: "Error on loading projects" })
+    return res.status(400).send({ error: "Error on loading projects" })
   }
 })
 

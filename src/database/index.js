@@ -1,10 +1,8 @@
 import mongoose from "mongoose"
 
-import { MONGO_USER, MONGO_PASSWORD, MONGO_DATABASE, MONGO_HOST } from "../config/databaseConfig.js"
+import { DB_URL } from "../config/databaseConfig.js"
 
-mongoose.connect(
-  `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_DATABASE}.${MONGO_HOST}`
-)
+mongoose.connect(DB_URL)
 
 mongoose.Promise = global.Promise
 
